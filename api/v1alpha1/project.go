@@ -7,6 +7,12 @@ import (
 type Project struct {
 	metav1.TypeMeta   `json:",inline"`
 	metav1.ObjectMeta `json:"metadata,omitempty"`
+
+	Spec ProjectSpec `json:"spec"`
+}
+
+type ProjectSpec struct {
+	GoTools []ProjectGoTool `json:"goTools,omitempty"`
 }
 
 type ProjectGoTool struct {
@@ -15,4 +21,4 @@ type ProjectGoTool struct {
 	Version string `json:"version"`
 }
 
-func init() { register(&Project{}) }
+// func init() { register(&Project{}) }
